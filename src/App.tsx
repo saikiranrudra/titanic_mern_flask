@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+// Components
+import Navigation from "./Components/Navigation";
+
+// Pages
+import Charts from "./Pages/Charts";
+import TablePage from "./Pages/TablePage";
+import Prediction from "./Pages/Prediction";
+
+// Utils
+import { BrowserRouter as Router, Route  } from "react-router-dom";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Route path="/">
+        <Navigation />
+      </Route>
+
+      <Route path="/" exact>
+        <Charts />
+      </Route>
+
+      <Route path="/TablePage" exact>
+        <TablePage />
+      </Route>
+
+      <Route path="/Prediction" exact>
+        <Prediction />
+      </Route>
+    </Router>
+  )
 }
 
 export default App;
