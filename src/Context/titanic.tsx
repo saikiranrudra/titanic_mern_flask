@@ -35,9 +35,13 @@ const contextProvider = () => {
         const [state, dispatch] = useReducer(reducer, [[["no-data"]]]);
 
         const getData = async () => {
-            const res = await titanic.get("/tableData");
-            const data: initialStateType = res.data.data;
-            dispatch({ type: "GET_DATA", payload: data });
+            try {
+                const res = await titanic.get("/tableData");
+                const data: initialStateType = res.data.data;
+                dispatch({ type: "GET_DATA", payload: data });
+            } catch(err) {
+                console.log("FETCH_TABLE_DATA_ERROR", err);
+            }
         }
         
         const actions: any = { getData } 

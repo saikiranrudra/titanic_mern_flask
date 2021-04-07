@@ -15,9 +15,12 @@ import { Context as TitanicContext } from "./Context/titanic";
 const App = () => {
   const { actions } = useContext(TitanicContext);
 
+  const { getData } = actions;
+
   useEffect(() => {
-    actions.getData();
-  }, [actions])
+    getData();
+  // eslint-disable-next-line
+  }, [])
 
   return (
     <Router>
