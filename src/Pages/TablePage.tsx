@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const TablePage = () => {
     return (
         <h1>TablePage</h1>

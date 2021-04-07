@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 // Utils
-import Papa from "papaparse";
+// import Papa from "papaparse";
 
 const Charts = () => {
     return (
