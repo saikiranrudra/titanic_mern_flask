@@ -8,7 +8,8 @@ import {
         TableCell, 
         TableContainer, 
         TableRow,  
-        Button
+        Button,
+        Typography
     } from "@material-ui/core";
  
 // Context Provider
@@ -41,22 +42,29 @@ const TablePage = () => {
     }
 
     return (
-        <TableContainer component={Paper}>
-            <Table>
-                <TableBody>
-                    {printData()}
-                </TableBody>
-            </Table>
-            <div style={{ textAlign: "center", margin: "1rem auto" }}>
-                <Button 
-                    variant="contained" 
-                    color="primary"
-                    onClick={() => { setLength(length + 10) }}
-                >
-                    Load More
-                </Button>
+        <>
+            <div style={{ margin: "1rem" }}>
+                <Typography variant="h3" component="h1" align="left">
+                    Data Set
+                </Typography>
             </div>
-        </TableContainer>
+            <TableContainer component={Paper}>
+                <Table>
+                    <TableBody>
+                        {printData()}
+                    </TableBody>
+                </Table>
+                <div style={{ textAlign: "center", margin: "1rem auto" }}>
+                    <Button 
+                        variant="contained" 
+                        color="primary"
+                        onClick={() => { setLength(length + 10) }}
+                    >
+                        Load More
+                    </Button>
+                </div>
+            </TableContainer>
+        </>
     );
 }
 

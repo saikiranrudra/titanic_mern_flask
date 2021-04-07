@@ -41,7 +41,7 @@ const Navigation = () => {
                 >
                     <div className={classes.btnContainer}>
 
-                        <Link to="/">
+                        <Link to="/" style={{ textDecoration: "none" }}>
                             <Button 
                                 variant="contained" 
                                 color="primary"
@@ -52,7 +52,7 @@ const Navigation = () => {
                             </Button> 
                         </Link>
 
-                        <Link to="/TablePage">
+                        <Link to="/TablePage" style={{ textDecoration: "none" }}>
                             <Button 
                                 variant="contained" 
                                 color="primary"
@@ -63,7 +63,7 @@ const Navigation = () => {
                             </Button> 
                         </Link>
 
-                        <Link to="/Prediction">
+                        <Link to="/Prediction" style={{ textDecoration: "none" }}>
                             <Button 
                                 variant="contained" 
                                 color="primary"
@@ -89,10 +89,12 @@ const useStyles = makeStyles({
     },
     btnContainer: {
         display: "flex",
-        justifyContent: "flex-end"
+        justifyContent: "flex-end",
+        padding: ".8rem 0"
     },
     btn: {
-        margin: ".5rem"
+        margin: ".05rem",
+        transform: "scale(.9)"
     }
 })
 
