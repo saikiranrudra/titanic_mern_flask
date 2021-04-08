@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Components
 import { Typography, TextField, Paper, Button } from "@material-ui/core";
 import { Formik } from "formik";
+import ResultPopup from "./../Components/ResultPopup";
 
 // Utils
 import { makeStyles } from "@material-ui/core/styles";
@@ -34,11 +35,18 @@ interface ObjectToKeyValue {
 
 const Predicition = () => {
     const classes = useStyle();
+    const [ open, setOpen ] = useState(false);
+    const [ prediction, setPrediction ] = useState("Survived");
+
+    const handleClose = (): any => {
+        setOpen(false);
+    }
 
     const getPrediction = async (values: any) => {
         try {
             const response = await titanic.post("/predict", { input: values });
-            console.log("prediction response...", response);
+            setPrediction(response.data.predict ? "Survived": "Not Survived" );
+            setOpen(true)
         } catch(err){
             console.log("PREDICTION_FETCH_ERROR: ", err);
         }
@@ -88,6 +96,12 @@ const Predicition = () => {
                     )
                 }}
             </Formik>
+            <ResultPopup
+                open={open}
+                handleClose={handleClose}
+                title="Prediction Result"
+                content={<Typography variant="h6" align="center">The passenger is <b>{prediction}</b></Typography>}
+            />
         </>
     );
 }

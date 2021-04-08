@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 // Components
 import { 
@@ -11,7 +11,7 @@ interface propType {
     open: boolean,
     handleClose: () => null,
     title: string,
-    content: string
+    content: ReactElement
 }
 
 const ResultPopup = (props: propType) => {
