@@ -1,5 +1,7 @@
 # MERN STACK APPLICATION FOR TITANIC SURVIVAL PREDICTION
 
+### [Video Demo of Application]("https://youtu.be/_wNN6gP34bs)
+
 ## 🕸 Branchs
 1. main (React App)
 2. node (node backend)
